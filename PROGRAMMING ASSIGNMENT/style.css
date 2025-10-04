@@ -1,0 +1,131 @@
+/* CSS Reset and Font Setup */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            color: white; /* Default text color for the purple side */
+        }
+
+        /* --- Color Definitions --- */
+        .bg-dark-indigo {
+            background-color: #1a142c; /* Deep, dark purple/indigo */
+        }
+        .bg-vibrant-purple {
+            background-color: #5d3fd3; /* Bright, vibrant purple */
+        }
+
+        /* --- Main Layout: Responsive Split Screen --- */
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Mobile first: stacked columns */
+        }
+
+        .left-section, .right-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem; /* Mobile padding */
+            box-sizing: border-box;
+        }
+        
+        .left-section {
+            min-height: 40vh; /* Minimum height for the dark section on mobile */
+        }
+
+        .right-section {
+            min-height: 60vh; /* Minimum height for the purple section on mobile */
+            align-items: flex-start; /* Align content to the left */
+        }
+
+        /* Desktop Media Query (equivalent to md: breakpoint) */
+        @media (min-width: 768px) {
+            .main-container {
+                flex-direction: row; /* Desktop: side-by-side rows */
+            }
+            .left-section, .right-section {
+                width: 50%; /* Each takes half the screen width */
+                min-height: 100vh;
+                padding: 4rem 6rem; /* Larger desktop padding */
+            }
+            .right-section {
+                justify-content: center; /* Center content vertically in the 50% height */
+            }
+        }
+
+        /* --- Logo Styling (Star Shape) --- */
+        .logo-shape {
+            width: 200px;
+            height: 200px;
+            
+            /* Apply a gradient background */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(198, 172, 255, 0.7) 50%, rgba(93, 63, 211, 0.5) 100%);
+            
+            /* 5-point star clip-path */
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            
+            /* 3D-like shadow/glow */
+            box-shadow: 0 0 40px rgba(188, 162, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-shape:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .logo-small {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 2rem;
+            /* Inherits clip-path and basic styling from .logo-shape, only size and margin differ */
+            box-shadow: 0 0 15px rgba(188, 162, 255, 0.6);
+        }
+
+        /* --- Content & Typography --- */
+        .content-group {
+            max-width: 400px;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .text-secondary {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 500; 
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .text-tagline {
+            font-size: 0.25rem; /* text-4xl */
+            font-weight: 800; 
+            letter-spacing: -0.05em; 
+            line-height: 1.1; 
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 768px) {
+            .text-tagline {
+                font-size: 2rem; /* text-6xl on desktop */
+            }
+        }
+        
+        /* --- Button Styling --- */
+        .cta-button {
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: white;
+            color: #5d3fd3; /* text-vibrant-purple */
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #f3f4f6;
+        }
